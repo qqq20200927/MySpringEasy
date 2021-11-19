@@ -1,0 +1,44 @@
+<beans>
+<!--    <bean id="user" class="com.spring.core.entity.User" scope = "prototype">-->
+<!--        <property name="id" value="20181020"></property>-->
+<!--        <property name="name" value="duoli"></property>-->
+<!--        <property name="age" value="21"></property>-->
+<!--    </bean>-->
+
+<!--    <bean id="user2" class="com.spring.core.entity.User" scope= "singleton">-->
+<!--        <property name="id" value="20181030"></property>-->
+<!--        <property name="name" value="danli"></property>-->
+<!--        <property name="age" value="26"></property>-->
+<!--    </bean>-->
+
+    <bean id = "userDao" class = "com.spring.core.dao.UserDao" scope = "singleton"></bean>
+
+    <bean id = "userService" class = "com.spring.core.service.UserService" scope = "singleton">
+        <property name = "userDao" ref = "userDao"></property>
+    </bean>
+
+<!--    <bean id="student" class="com.spring.core.pojo.Student" scope="singleton" >-->
+<!--        <property name="name" value="123"></property>-->
+<!--    </bean>-->
+
+<!--    <bean id="teacher" class="com.spring.core.pojo.Teacher" scope="singleton">-->
+<!--        <property name="student" ref="student"></property>-->
+<!--    </bean>-->
+
+<!--    <bean id="person" class="com.spring.core.pojo.Person" scope="prototype">-->
+<!--        <property name="teacher" ref="teacher"></property>-->
+<!--        <property name="student" ref="student"></property>-->
+<!--    </bean>-->
+
+    <bean id="pojoA" class = "com.spring.core.pojo.PojoA" scope = "singleton">
+        <property name ="pojoB" ref = "pojoB"></property>
+    </bean>
+
+    <bean id="pojoB" class = "com.spring.core.pojo.PojoB" scope = "singleton">
+        <property name ="pojoC" ref = "pojoC"></property>
+    </bean>
+
+    <bean id="pojoC" class = "com.spring.core.pojo.PojoC" scope = "singleton">
+        <property name ="pojoA" ref = "pojoA"></property>
+    </bean>
+</beans>
